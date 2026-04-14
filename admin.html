@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Radar de Ofertas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">Radar de Ofertas</a>
+      <ul class="menu">
+        <li><a href="index.html">Site</a></li>
+        <li><a class="active" href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="loginSection" class="login-box panel">
+      <h2 style="margin-bottom:14px;">Entrar no painel</h2>
+      <div class="form-grid">
+        <input id="email" class="input" type="email" placeholder="Seu e-mail" autocomplete="email">
+        <input id="password" class="input" type="password" placeholder="Sua senha" autocomplete="current-password">
+        <button id="loginBtn" class="btn btn-primary">Entrar</button>
+        <p id="loginMessage" class="muted"></p>
+      </div>
+    </div>
+
+    <section id="adminSection" class="hidden">
+      <div class="section-head" style="margin-top:40px;">
+        <div>
+          <h2>Painel administrativo</h2>
+          <p>Gerencie produtos, cupons e informações do site.</p>
+        </div>
+        <div class="top-actions">
+          <button id="logoutBtn" class="btn btn-outline">Sair</button>
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <div class="stat-card">
+          <h3>Total de produtos</h3>
+          <div class="number" id="totalProducts">0</div>
+        </div>
+        <div class="stat-card">
+          <h3>Produtos ativos</h3>
+          <div class="number" id="activeProducts">0</div>
+        </div>
+        <div class="stat-card">
+          <h3>Em destaque</h3>
+          <div class="number" id="featuredProducts">0</div>
+        </div>
+      </div>
+
+      <div class="admin-layout">
+        <div class="panel">
+          <h3 style="margin-bottom:14px;">Formulário de produto</h3>
+          <form id="productForm" class="form-grid">
+            <input id="nome" class="input" type="text" placeholder="Nome do produto *" required>
+            <textarea id="descricao" placeholder="Descrição do produto *" required></textarea>
+            
+            <div class="form-row">
+              <input id="preco" class="input" type="text" placeholder="Preço *" required>
+              <input id="precoAntigo" class="input" type="text" placeholder="Preço antigo (opcional)">
+            </div>
+
+            <div class="form-row">
+              <input id="loja" class="input" type="text" placeholder="Loja / plataforma *" required>
+              <input id="categoria" class="input" type="text" placeholder="Categoria *" required>
+            </div>
+
+            <input id="badge" class="input" type="text" placeholder="Selo (ex: Promoção, Recomendado)">
+            <input id="cupom" class="input" type="text" placeholder="Cupom de desconto (opcional)">
+            <input id="emoji" class="input" type="text" placeholder="Emoji fallback (ex: 🎧)">
+            <input id="imagem" class="input" type="url" placeholder="URL da imagem do produto">
+            <input id="link" class="input" type="url" placeholder="Link de afiliado *" required>
+
+            <div class="form-row">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+                <input type="checkbox" id="destaque">
+                <span>Marcar como destaque</span>
+              </label>
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
+                <input type="checkbox" id="ativo" checked>
+                <span>Produto ativo</span>
+              </label>
+            </div>
+
+            <div class="top-actions">
+              <button type="submit" class="btn btn-primary btn-block" id="saveBtn">Salvar produto</button>
+              <button type="button" class="btn btn-outline btn-block hidden" id="cancelEditBtn">Cancelar edição</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3 style="margin-bottom:14px;">Produtos cadastrados</h3>
+          <div id="adminProductsList" class="admin-list"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-bottom">
+      © 2026 Radar de Ofertas. Painel administrativo.
+    </div>
+  </footer>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

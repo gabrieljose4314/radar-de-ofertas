@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radar de Ofertas | Produtos recomendados e indicações afiliadas</title>
+  <meta name="description" content="Encontre produtos recomendados, ofertas e achadinhos de diversas lojas e plataformas com links afiliados.">
+  <meta property="og:title" content="Radar de Ofertas">
+  <meta property="og:description" content="Produtos recomendados e ofertas de várias lojas em um só lugar.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">Radar de Ofertas</a>
+      <ul class="menu">
+        <li><a class="active" href="index.html">Início</a></li>
+        <li><a href="index.html#produtos">Produtos</a></li>
+        <li><a href="index.html#categorias">Categorias</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+      <a href="#produtos" class="btn btn-primary">Ver ofertas</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <h1>Produtos recomendados, ofertas e cupons em um só lugar</h1>
+          <p>
+            Descubra achadinhos, compare opções e acesse links para comprar com praticidade. 
+            Tudo com informação clara e transparência.
+          </p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Explorar produtos</a>
+            <a href="afiliado.html" class="btn btn-outline">Sobre afiliados</a>
+          </div>
+          <div class="notice">
+            Este site pode receber comissão por compras realizadas através dos links divulgados aqui, sem custo extra para você.
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Atualização em tempo real</h3>
+          <p>
+            Os produtos desta vitrine são gerenciados online e atualizados, 
+            para você sempre ter informações recentes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Produtos em destaque</h2>
+            <p>Use busca, categoria e ordenação para encontrar o que procura.</p>
+          </div>
+        </div>
+
+        <div class="filters">
+          <input type="text" id="searchInput" class="input" placeholder="Buscar por nome, descrição, loja...">
+          <select id="categoryFilter">
+            <option value="">Todas as categorias</option>
+          </select>
+          <select id="sortFilter">
+            <option value="newest">Mais recentes</option>
+            <option value="name-asc">Nome A-Z</option>
+            <option value="name-desc">Nome Z-A</option>
+          </select>
+        </div>
+
+        <div id="productsGrid" class="grid products-grid"></div>
+      </div>
+    </section>
+
+    <section id="categorias">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Categorias</h2>
+            <p>Explore produtos por categoria para encontrar o que você precisa.</p>
+          </div>
+        </div>
+        <div id="categoriesGrid" class="grid categories-grid"></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="newsletter">
+          <h2>Receba ofertas no e-mail</h2>
+          <p>Cadastre-se para receber novidades, promoções e recomendações selecionadas.</p>
+          <form id="newsletterForm" class="newsletter-form">
+            <input type="email" id="email" placeholder="Digite seu melhor e-mail" required>
+            <button type="submit" class="btn btn-outline" style="background:white;color:var(--primary);">Cadastrar</button>
+          </form>
+          <p id="newsletterMessage" class="newsletter-message"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Radar de Ofertas</h4>
+          <p>Site de indicações e links afiliados de diversas lojas e plataformas para ajudar você a encontrar boas ofertas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Páginas</h4>
+          <a href="index.html">Início</a>
+          <a href="index.html#produtos">Produtos</a>
+          <a href="index.html#categorias">Categorias</a>
+        </div>
+        <div class="footer-col">
+          <h4>Institucional</h4>
+          <a href="privacidade.html">Política de Privacidade</a>
+          <a href="afiliado.html">Aviso de Afiliado</a>
+        </div>
+        <div class="footer-col">
+          <h4>Admin</h4>
+          <a href="admin.html">Painel</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Radar de Ofertas. Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

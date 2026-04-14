@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="pageTitle">Produto | Radar de Ofertas</title>
+  <meta id="pageDescription" name="description" content="Veja detalhes do produto e acesse o link para comprar.">
+  <meta id="ogTitle" property="og:title" content="Produto">
+  <meta id="ogDescription" property="og:description" content="Veja detalhes do produto.">
+  <meta id="ogImage" property="og:image" content="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="index.html">Radar de Ofertas</a>
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="index.html#produtos">Produtos</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+      <a href="index.html#produtos" class="btn btn-primary">Ver mais ofertas</a>
+    </div>
+  </header>
+
+  <main class="container" style="padding:40px 0;">
+    <div class="breadcrumb">
+      <a href="index.html">Início</a> / 
+      <a href="index.html#produtos">Produtos</a> / 
+      <span id="breadcrumbName">Carregando...</span>
+    </div>
+
+    <div id="productContent"></div>
+  </main>
+
+  <footer>
+    <div class="container footer-bottom">
+      © 2026 Radar de Ofertas. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <script type="module" src="produto.js"></script>
+</body>
+</html>
