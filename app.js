@@ -82,6 +82,8 @@ function renderCategories(products) {
 }
 
 function renderProducts(products) {
+  if (!productsGrid) return;
+
   if (!products.length) {
     productsGrid.innerHTML = `<div class="empty">Nenhum produto encontrado.</div>`;
     return;
@@ -90,32 +92,65 @@ function renderProducts(products) {
   productsGrid.innerHTML = products.map(product => {
     const discount = calcDiscount(product.precoAntigo, product.preco);
     const slug = slugify(product.nome);
-    
+    const url = `produto.html?id=${product.id}&slug=${slug}`;
+
+    let mediaHtml = "";
+
+    if (product.midia) {
+      if (product.midiaTipo === "video") {
+        mediaHtml = `
+          <video
+            src="${product.midia}"
+            muted
+            autoplay
+            loop
+            playsinline
+            style="width:100%;height:160px;object-fit:cover;"
+          ></video>
+        `;
+      } else {
+        mediaHtml = `
+          <img
+            class="product-image"
+            src="${product.midia}"
+            alt="${escapeHtml(product.nome)}"
+            loading="lazy"
+          >
+        `;
+      }
+    } else {
+      mediaHtml = `<div class="product-image-fallback">${product.emoji || "🛍️"}</div>`;
+    }
+
     return `
-      <article class="card">
-        ${
-          product.imagem
-            ? `<img class="product-image" src="${product.imagem}" alt="${escapeHtml(product.nome)}" loading="lazy">`
-            : `<div class="product-image-fallback">${product.emoji || "🛍️"}</div>`
-        }
+      <a href="${url}" class="card product-card">
+
+        ${mediaHtml}
+
         <div class="card-body">
-          ${product.destaque ? `<span class="badge badge-destaque">⭐ Destaque</span>` : `<span class="badge">${product.badge || "Oferta"}</span>`}
-          ${discount ? `<span class="badge badge-desconto">-${discount}%</span>` : ""}
-          
+
+          ${product.destaque
+            ? `<span class="badge badge-destaque">⭐ Destaque</span>`
+            : discount
+            ? `<span class="badge badge-desconto">-${discount}%</span>`
+            : `<span class="badge">${product.badge || "Oferta"}</span>`
+          }
+
           <h3 class="product-title">${escapeHtml(product.nome)}</h3>
-          <p class="product-desc">${escapeHtml(product.descricao)}</p>
-          
+
           <div class="product-meta">
             <div class="price-group">
-              ${product.precoAntigo ? `<span class="price-old">${formatPrice(product.precoAntigo)}</span>` : ""}
+              ${product.precoAntigo
+                ? `<span class="price-old">${formatPrice(product.precoAntigo)}</span>`
+                : ""
+              }
               <span class="price">${formatPrice(product.preco)}</span>
             </div>
             <span class="store">${escapeHtml(product.loja)}</span>
           </div>
-          
-          <a href="produto.html?id=${product.id}&slug=${slug}" class="btn btn-primary btn-block">Ver detalhes</a>
+
         </div>
-      </article>
+      </a>
     `;
   }).join("");
 }

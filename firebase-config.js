@@ -28,7 +28,22 @@ export function escapeHtml(text) {
 }
 
 export function formatPrice(price) {
-  return price || "Consultar";
+  if (!price) return "Consultar";
+
+  // Se já vier formatado como string ex: "R$ 149,90" retorna direto
+  if (typeof price === "string" && price.includes("R$")) return price;
+
+  // Se vier como número converte para BRL
+  const number = parseFloat(
+    String(price).replace(/[^\d,\.]/g, "").replace(",", ".")
+  );
+
+  if (isNaN(number)) return price;
+
+  return number.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
 }
 
 export function calcDiscount(oldPrice, newPrice) {

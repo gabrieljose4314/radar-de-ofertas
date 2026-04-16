@@ -32,7 +32,7 @@
       <div class="section-head" style="margin-top:40px;">
         <div>
           <h2>Painel administrativo</h2>
-          <p>Gerencie produtos, cupons e informações do site.</p>
+          <p>Gerencie produtos do seu site de afiliados.</p>
         </div>
         <div class="top-actions">
           <button id="logoutBtn" class="btn btn-outline">Sair</button>
@@ -58,9 +58,10 @@
         <div class="panel">
           <h3 style="margin-bottom:14px;">Formulário de produto</h3>
           <form id="productForm" class="form-grid">
+
             <input id="nome" class="input" type="text" placeholder="Nome do produto *" required>
             <textarea id="descricao" placeholder="Descrição do produto *" required></textarea>
-            
+
             <div class="form-row">
               <input id="preco" class="input" type="text" placeholder="Preço *" required>
               <input id="precoAntigo" class="input" type="text" placeholder="Preço antigo (opcional)">
@@ -74,8 +75,36 @@
             <input id="badge" class="input" type="text" placeholder="Selo (ex: Promoção, Recomendado)">
             <input id="cupom" class="input" type="text" placeholder="Cupom de desconto (opcional)">
             <input id="emoji" class="input" type="text" placeholder="Emoji fallback (ex: 🎧)">
-            <input id="imagem" class="input" type="url" placeholder="URL da imagem do produto">
             <input id="link" class="input" type="url" placeholder="Link de afiliado *" required>
+
+            <!-- UPLOAD DE MÍDIA -->
+            <div>
+              <label style="font-weight:700;display:block;margin-bottom:8px;">
+                Foto ou vídeo do produto
+              </label>
+
+              <div class="upload-area" id="uploadArea">
+                <input
+                  type="file"
+                  id="mediaFile"
+                  accept="image/*,video/*"
+                >
+                <span>📁</span>
+                <p>Clique ou arraste uma foto ou vídeo aqui</p>
+                <p style="font-size:0.85rem;margin-top:4px;">JPG, PNG, WEBP, MP4, MOV — máx. 50MB</p>
+              </div>
+
+              <div class="upload-progress" id="uploadProgress">
+                <div class="upload-progress-bar" id="uploadProgressBar"></div>
+              </div>
+              <p class="upload-status" id="uploadStatus"></p>
+
+              <div class="upload-preview" id="uploadPreview"></div>
+
+              <!-- Campo oculto que guarda a URL após o upload -->
+              <input type="hidden" id="mediaUrl" value="">
+              <input type="hidden" id="mediaTipo" value="">
+            </div>
 
             <div class="form-row">
               <label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
@@ -92,6 +121,7 @@
               <button type="submit" class="btn btn-primary btn-block" id="saveBtn">Salvar produto</button>
               <button type="button" class="btn btn-outline btn-block hidden" id="cancelEditBtn">Cancelar edição</button>
             </div>
+
           </form>
         </div>
 

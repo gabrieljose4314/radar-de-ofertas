@@ -52,6 +52,8 @@ img {
   display: none !important;
 }
 
+/* ==================== HEADER ==================== */
+
 header {
   position: sticky;
   top: 0;
@@ -93,6 +95,8 @@ header {
 .menu a.active {
   color: var(--primary);
 }
+
+/* ==================== BOTÕES ==================== */
 
 .btn {
   border: none;
@@ -146,6 +150,8 @@ header {
   width: 100%;
 }
 
+/* ==================== HERO ==================== */
+
 .hero {
   padding: 70px 0 45px;
 }
@@ -198,6 +204,8 @@ header {
   font-size: 0.95rem;
 }
 
+/* ==================== SEÇÕES ==================== */
+
 section {
   padding: 48px 0;
 }
@@ -237,63 +245,89 @@ section {
   text-decoration: underline;
 }
 
+/* ==================== GRID ==================== */
+
 .grid {
   display: grid;
-  gap: 22px;
+  gap: 14px;
 }
 
 .products-grid {
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .categories-grid {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
+/* ==================== CARDS ==================== */
+
 .card {
   background: rgba(255, 255, 255, 0.97);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: 0.25s;
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+.product-card {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+  border-color: var(--primary);
+}
+
+.product-card:hover .product-title {
+  color: var(--primary);
+}
+
+.product-card:hover .price {
+  color: var(--primary-dark);
 }
 
 .product-image {
   width: 100%;
-  height: 220px;
+  height: 160px;
   object-fit: cover;
   background: linear-gradient(135deg, #eff6ff, #e2e8f0);
 }
 
 .product-image-fallback {
-  height: 220px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2.5rem;
   background: linear-gradient(135deg, #eff6ff, #e2e8f0);
 }
 
 .card-body {
-  padding: 18px;
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
+
+/* ==================== BADGE ==================== */
 
 .badge {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 8px;
   border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  margin-bottom: 10px;
   background: #dbeafe;
   color: #1d4ed8;
+  width: fit-content;
 }
 
 .badge-destaque {
@@ -306,82 +340,68 @@ section {
   color: #166534;
 }
 
-.product-title {
-  font-size: 1.06rem;
+.discount-badge {
+  background: var(--success);
+  color: white;
+  padding: 3px 7px;
+  border-radius: 6px;
+  font-size: 0.72rem;
   font-weight: 800;
-  margin-bottom: 8px;
 }
 
-.product-desc {
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 14px;
-  min-height: 60px;
+/* ==================== PRODUTO CARD ==================== */
+
+.product-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--text);
+  transition: 0.2s;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .product-meta {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 14px;
-  font-size: 0.94rem;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
 }
 
 .price-group {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .price {
   color: var(--success);
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 0.98rem;
+  transition: 0.2s;
 }
 
 .price-old {
   color: var(--light);
-  font-size: 0.85rem;
-  text-decoration: line-through;
-}
-
-.discount-badge {
-  background: var(--success);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 800;
+  text-decoration: line-through;
 }
 
 .store {
   color: var(--muted);
   font-weight: 700;
+  font-size: 0.78rem;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
 }
 
-.input,
-select,
-textarea {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  outline: none;
-  background: white;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-.input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--primary);
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
+/* ==================== FILTROS ==================== */
 
 .filters {
   display: grid;
@@ -389,6 +409,8 @@ textarea {
   gap: 14px;
   margin-bottom: 26px;
 }
+
+/* ==================== CATEGORIAS ==================== */
 
 .category-card {
   background: white;
@@ -411,6 +433,8 @@ textarea {
   font-size: 2rem;
   margin-bottom: 8px;
 }
+
+/* ==================== PÁGINA DE PRODUTO ==================== */
 
 .product-detail {
   display: grid;
@@ -480,6 +504,34 @@ textarea {
 .product-specs li:last-child {
   border-bottom: none;
 }
+
+/* ==================== INPUTS ==================== */
+
+.input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  outline: none;
+  background: white;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* ==================== ADMIN ==================== */
 
 .login-box {
   max-width: 430px;
@@ -553,6 +605,8 @@ textarea {
   text-align: center;
 }
 
+/* ==================== DASHBOARD ==================== */
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -579,6 +633,85 @@ textarea {
   font-weight: 800;
   color: var(--primary);
 }
+
+/* ==================== UPLOAD ==================== */
+
+.upload-area {
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s;
+  background: #f8fafc;
+  position: relative;
+}
+
+.upload-area:hover {
+  border-color: var(--primary);
+  background: #eff6ff;
+}
+
+.upload-area input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.upload-area span {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.upload-area p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.upload-preview {
+  margin-top: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: none;
+}
+
+.upload-preview img,
+.upload-preview video {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.upload-progress {
+  height: 6px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 10px;
+  display: none;
+}
+
+.upload-progress-bar {
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  width: 0%;
+  transition: width 0.3s;
+}
+
+.upload-status {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 6px;
+  min-height: 20px;
+}
+
+/* ==================== NEWSLETTER ==================== */
 
 .newsletter {
   padding: 38px;
@@ -614,6 +747,8 @@ textarea {
   margin-top: 12px;
   font-weight: bold;
 }
+
+/* ==================== FOOTER ==================== */
 
 footer {
   margin-top: 50px;
@@ -651,6 +786,8 @@ footer {
   font-size: 0.95rem;
 }
 
+/* ==================== TOAST ==================== */
+
 .toast {
   position: fixed;
   bottom: 30px;
@@ -681,6 +818,24 @@ footer {
 
 .toast-warning {
   background: var(--warning);
+}
+
+/* ==================== RESPONSIVO ==================== */
+
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .grid {
+    gap: 16px;
+  }
 }
 
 @media (max-width: 980px) {
@@ -718,5 +873,31 @@ footer {
   .toast {
     right: 20px;
     left: 20px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .product-image,
+  .product-image-fallback {
+    height: 130px;
+  }
+
+  .card-body {
+    padding: 8px 10px 10px;
+  }
+
+  .product-title {
+    font-size: 0.82rem;
+  }
+
+  .price {
+    font-size: 0.9rem;
+  }
+
+  .store {
+    font-size: 0.72rem;
+    max-width: 60px;
   }
 }
