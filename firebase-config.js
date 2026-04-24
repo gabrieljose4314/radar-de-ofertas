@@ -1,9 +1,8 @@
-// Suas credenciais do Firebase
 export const firebaseConfig = {
   apiKey: "AIzaSyCN_lvHEYr4u4M-t0zRpK5x70X9zsk-tYQ",
   authDomain: "radar-de-ofertas-6f111.firebaseapp.com",
   projectId: "radar-de-ofertas-6f111",
-  storageBucket: "radar-de-ofertas-6f111.firebasestorage.app",
+  storageBucket: "radar-de-ofertas-6f111.appspot.com",
   messagingSenderId: "907317647842",
   appId: "1:907317647842:web:fed30440861d062c9601bb",
   measurementId: "G-BBCF0L8NRD"
@@ -30,10 +29,8 @@ export function escapeHtml(text) {
 export function formatPrice(price) {
   if (!price) return "Consultar";
 
-  // Se já vier formatado como string ex: "R$ 149,90" retorna direto
   if (typeof price === "string" && price.includes("R$")) return price;
 
-  // Se vier como número converte para BRL
   const number = parseFloat(
     String(price).replace(/[^\d,\.]/g, "").replace(",", ".")
   );
